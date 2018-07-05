@@ -5,8 +5,9 @@ import  numpy as np
 import os
 import cv2
 #load model
-no_show =True
-model_path ='../../train/picked_models/model-145-0.95.hdf5'
+no_show =False
+#model_path ='../../train/picked_models/model-145-0.95.hdf5'
+model_path ='./model-09-0.87.hdf5'
 models_floder = '../../train/picked_models'
 #get image to numpy
 #        others is 0
@@ -84,6 +85,7 @@ if __name__ == '__main__':
             data_in = np.row_stack((data_in,img))
     data_in = data_in[1:]
     data_predict = np.reshape(data_in,(len(img_key_lst),img_size[0],img_size[1],img_size[2]))
+    data_predict = data_predict
     if no_show:
         models = os.listdir(models_floder)
         acc_lst = []
